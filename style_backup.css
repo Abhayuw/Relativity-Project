@@ -1,0 +1,47 @@
+#grid_container{
+    border: 2px solid red;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+    background-color: grey;
+    
+    
+    }
+
+div#grid_container>* {
+    border: 2px solid rgb(19, 19, 13);
+    max-width: 100%;
+    width: 50vw;
+    height: 20vw;
+    object-fit:cover;
+  }
+  #ship{
+      background-image: url("dark window final render.png");
+      height: 200vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;       
+    } 
+    
+#main_img{
+       background-image: url("blackhole.jpg"); 
+       height: 100vh;  
+       background-size: cover;
+       position:relative;
+       background-position: center;
+       z-index: -1;
+       
+   }
+
+
+ ain_img{
+    max-width: 250%;
+    display: grid;
+    margin-left: -50%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+
+}

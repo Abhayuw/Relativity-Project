@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="search_bar">
+    <input type="text" id="input" value="london">
+    <button id="submit">Search</button>
+  </div>
+    
+  
+  
+  <div id="grid_container">
+  </div>
+  
+  
+  
+  <div id="ship">
+    <div id="main_img">
+    </div>
+  </div>
+  
+  
+  <script>
+    let url_array= [];  
+   const get_img= (param1)=>{
+   const img_url=`https://api.unsplash.com/search/photos?page=1&query=${param1}&client_id=CKFFee2CJ1GPl9BKJ0Y-vcqDEpLSnAmD_RHxCwsZvXE`
+   const response= fetch(img_url);
+   response.then((response)=>{ return response.json();})
+   .then((data)=>{
+   console.log(data);
+   return url_array= data.results.map((x)=>{return x.urls.full})})
+   .then(display_img);
+  
+}
+   
+   
+   function display_img(url_array){
+     for( let i=0;i<url_array.length;i++){
+       load_img(url_array,i);
+      
+   }
+   }
+   function load_img(url_array,i){
+   
+    let container= document.getElementById("grid_container");
+   let image = document.createElement("img");
+   image.setAttribute('src',url_array[i]); 
+   image.setAttribute("class","picture");
+   container.style.display = "grid";
+   ship.style.display = "none";
+   ///main_img not grabbed by element selector but still works//
+   main_img.style.display = "none";
+   
+   image.addEventListener("click",()=>{
+   console.log([i]);
+   let x= document.getElementById("main_img");
+   x.style.backgroundImage = `url(${url_array[i]})`;
+   container.style.display = "none";
+   ship.style.display = "grid";
+   main_img.style.display = "grid";
+  })
+   
+   container.appendChild(image);
+   //console.log(url_array[i]);
+   }
+   //////////////////////////////////////////////////////////////////
+   let input = document.getElementById("input");
+   let submit = document.getElementById("submit");
+   submit.addEventListener("click",()=>{
+     for( let j=0; j<=url_array.length; j++){
+       let element = document.getElementById("grid_container");
+       //element.removeChild(element.firstChild);      ///this is old and slow method but works in every browser.
+       element.replaceChildren();                      ///new method may not work on old browsers. 
+      }   
+      get_img(input.value);
+    })
+    
+  </script>
+</body>
+</html>
+
+<!--  Access key: CKFFee2CJ1GPl9BKJ0Y-vcqDEpLSnAmD_RHxCwsZvXE
+Secret key: uYmDL1nJeTx-srVU9zIWHCW8IW67OOHeNm5Rx1B8B1c

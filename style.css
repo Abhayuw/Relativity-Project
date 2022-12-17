@@ -1,0 +1,88 @@
+body{
+    margin: 0px;
+    overflow-y: hidden;
+   
+}
+#grid_container{
+    border: 2px solid red;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+    background-color: grey;
+    height:100vh ;
+    }
+
+div#grid_container>* {
+    border: 2px solid rgb(19, 19, 13);
+    max-width: 100%;
+    width: 50vw;
+    height: 20vw;
+    object-fit:cover;
+  }
+  @media (max-width: 768px) {
+    #grid_container{
+        grid-template-columns: repeat(1, 1fr);
+     }
+     div#grid_container>*{
+        width: 100vw;
+        height: 60vw;
+     }  
+    }
+     @media only screen and (max-width: 1220px) and (min-width: 769px)  {
+        div#grid_container>*{
+            height: 37vw;
+         }  
+
+     }   
+  
+  #ship{
+      background-image: url("dark window final render.png");
+      height: 200vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;      
+      z-index: 1; 
+    } 
+
+#main_img{
+       background-image: url("mars.jpg"); 
+       height: 200vh; 
+       background-size: cover;
+       position:relative;
+       background-position: center;
+       background-attachment: fixed;
+       z-index: -1;
+       top: -100px;
+       /*transform: scaleX(1);*/
+}
+
+#search_bar{
+    border: 5px solid black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+    top: 70vh;
+    flex-wrap: wrap;
+  } 
+#range_slider{
+    position: relative;
+    z-index: 5;
+    top: 85vh;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid red;
+}
+#slider{
+    
+}
+#slider_after{
+    font-size: 1.4rem;
+ 
+   
+}  
+
+
