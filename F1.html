@@ -93,12 +93,17 @@
   
 let slider= document.getElementById("slider");
     
-slider.oninput = ()=>{console.log(slider.value);}   
+slider.oninput = ()=>{console.log(slider.value);   
+  const c= 299792458;
+  const v = c*slider.value/100;
+  const Lorfac  = 1-((v*v)/(c*c));
+
+  const val = Math.sqrt(Lorfac);
+  console.log(val)
+  let subject_img= document.getElementById("main_img");
+  subject_img.style.transform=`scaleX(${val})`;
   
-  
-  
-  
-  
+}
   
   
   

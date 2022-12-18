@@ -54,8 +54,9 @@ div#grid_container>* {
        background-position: center;
        background-attachment: fixed;
        z-index: -1;
-       top: -100px;
-       /*transform: scaleX(1);*/
+       top: -75vh;
+       transform: scaleX(1);
+       
 }
 
 #search_bar{
